@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wen</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 符號庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+ 
+<body>
+    <header>
+        <button class="menu">&#9776;</button>
+        <nav id="nav">
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#School-Works">School Works</a></li>
+                <li><a href="#Personal-Works">Personal Works</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav id="nav2">
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#School-Works">School Works</a></li>
+            <li><a href="#Personal-Works">Personal Works</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="Home" class="Home-section">
+            <img src="assets/images/bg.jpg" id="bg">
+            <img src="assets/images/moon.png" id="moon">
+            <img src="assets/images/mountain.png" id="mountain">
+            <img src="assets/images/road.png" id="road" >
+            <div id="text">
+                <h3>中科大 多媒體設計系 溫采薇</h3>
+                <h1>Potofolio</h1>
+            </div>
+        </section > 
+
+        <div id="p1" class="p">
+            <p>Walking across the vast, pathless, wilderness, I am always alone, yet never lonely.<br>For as long as I keep moving forward, hold even a glimmer of love and yearning for the world, I will never lose myself as a friend.</p>
+        </div>
+
+        <section id="About" class="About-section">
+            <div class="Abo">
+                <div class="me">
+                    <h1>溫采薇</h1>
+                    <h3>多媒三1 1411122024 </h3>
+                </div>
+                <img src="assets/images/00.png">
+            </div>
+            <p>Just an ordinary person who can be seen everywhere, but this sentence will look cooler if it's typed in English and GOD BLESS ME don't let me be pawned off,<br> I will try to submit my homework on time GOD</p>
+            <div class="About2">
+                <h3>關於我</h3>
+                <video controls class="responsive-video" id="video">
+                    <source src="assets/video/result.mp4" type="video/mp4" controls="true" >
+                </video>
+            </div>
+        </section>
+
+        <section id="School-Works" class="School-Works-section">
+            <div>
+                <img src="">
+                <h3></h3>
+            </div>
+            <div>
+                <img src="">
+                <h3></h3>
+            </div>
+        </section>
+
+        <section id="Personal-Works" class="Personal-Works-section">
+            <div>
+                <img src="">
+                <h3></h3>
+            </div>
+            <div>
+                <img src="">
+                <h3></h3>
+            </div>
+        </section>
+
+        <section class="Contact-section">
+            <h1>聯絡資訊</h1>
+            <div id="con">
+                <h3>Email:vivianwen0124@gmail.com</h3>
+                <h3>Phone:0965512802 </h3>
+            </div>
+            <div id="upload-section">
+                <h2>新增作品</h2>
+                <form id="upload-form">
+                    <input type="text" name="title" placeholder="作品名稱" required>
+                    <input type="text" name="imgSrc" placeholder="圖片路徑" required>
+                    <textarea name="description" placeholder="作品描述" required></textarea>
+                    <button type="submit">上傳作品</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© made by 1411122024 </p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

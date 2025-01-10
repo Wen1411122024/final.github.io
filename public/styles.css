@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/*字體集*/
+
+*
+{
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-family: "Inter", sans-serif;
+}
+/*
+padding內邊距, margin外邊距, border邊框
+* 10Px; 10px 5px; 10px 5px 10px; 10px 5px 10px 5px
+  四邊, 上下 左右,  上  左右 下 ,  上   右  下  左
+  vw(width)全螢幕寬度, vh(height)全螢幕高度
+*/
+
+body
+{
+    background-color: rgb(10, 42, 67);
+}
+
+
+.Home-section {
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*
+position:relative設此元素為相對定位, 相對定位的元素會成為內部絕對定位子元素（position: absolute）的參考框架
+overflow超出範圍
+參考https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
+display: flex套用flex
+justify-content水平排列 
+參考https://w3c.hexschool.com/flexbox/4a029043
+align-items垂直排列
+參考https://w3c.hexschool.com/flexbox/87d66dc4
+*/
+
+.Home-section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*
+position: absolute; top: 0; left: 0;將圖片絕對定位於 section 的左上角
+object-fit圖片比例
+參考https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit
+*/
+
+/*
+::before/after偽元素
+參考https://w3c.hexschool.com/blog/5667df85
+*/
+.Home-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to top,  rgb(10, 42, 67), transparent);
+    z-index: 10;
+}
+.Home-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(10, 42, 67);
+    mix-blend-mode: color;
+    z-index: 10;
+}
+/*
+content: ''設置一個空的偽元素
+linear-gradient漸層
+transparent透明
+mix-blend-mode混色模式
+*/
+
+header {
+    z-index: 20;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+/*
+z-index圖層 由大至小, 
+*/
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 3.5%;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+/*
+gap各標籤彼此間距
+border-top/bottom-left/right-radius圓角
+backdrop-filter背景濾鏡 blur模糊
+參考https://ithelp.ithome.com.tw/articles/10359068
+*/
+
+nav li {
+    display: inline;
+}
+/*使標籤在同一欄內*/
+
+nav a {
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.5s;
+    text-shadow: 0px 0px 15px rgb(210, 236, 255)
+  }
+/*
+text-decoration文字裝飾
+transition轉場
+font-weight字體粗細
+參考https://developer.mozilla.org/zh-TW/docs/Web/CSS/transition
+*/
+
+nav a.active {
+    background-color: rgb(10, 42, 67);
+    color: white;
+    text-shadow: none
+}
+/*
+.active啟動效果
+參考https://developer.mozilla.org/zh-CN/docs/Web/CSS/:active
+*/
+
+nav a:hover {
+    background-color:  rgb(10, 42, 67);
+    color: white;
+}
+/*a:hover懸停*/
+
+#nav2{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 250px;
+    width: 169px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 11;
+    animation: topright 0.6s ease-out forwards;
+}
+#nav2 li {
+    padding: 10px 0px;
+}
+
+#nav2 ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav2 a {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 17px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.5s;
+}  
+
+.menu {
+    display: none;
+}
+/*頁面大小正常時不顯示*/
+
+#text {
+    position: relative;
+    z-index: 1;
+    color: rgb(255, 255, 255);
+}
+#text h3 {
+    font-size: 1.6vw;
+    font-weight: 400;
+    letter-spacing: 15px;
+    text-align: center;
+  }
+#text h1 {
+    font-size: 13vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    text-align: center;
+    margin: -20px 0;
+  }
+/*
+提取id="text"
+position: relative相對定位
+text-transform字母大小寫
+*/
+
+#road{
+    z-index: 2;
+}
+
+#p1 p{
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    padding: 80px 40px;
+    width: 100vw;
+    overflow: hidden;
+    text-align: center;
+    box-sizing: border-box;
+}
+/*text-align: center整句文字置中
+box-sizing: border-box;確保padding不會影響元素的總寬度*/
+
+.About-section {
+    position: relative;
+    height: 230vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(assets/images/lg.png);
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+/*
+flex-direction排版方式, column直排
+background-repeat背景重複*/
+
+.About-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 150vh;
+    background: linear-gradient(to bottom,  rgb(10, 42, 67), transparent);
+    z-index: 10;
+}
+
+#About{
+    position: relative;
+    top: 10vh;
+}
+
+.Abo {
+    display: flex;
+    z-index: 11;
+}
+
+.About-section img {
+    position: absolute;
+    right: 10vw;
+    top: 65vh;
+    padding: 5px;
+    height: 20vh;
+    z-index: 11;
+    border: 2px rgb(255, 255, 255);
+    border-radius: 1000px;
+    border-style: dashed groove none dotted;
+}
+
+.me {
+    position: absolute;
+    left: 10vw;
+    bottom: 145vh;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 70px;
+    letter-spacing: 10px;  
+}
+
+.me h1 {
+    font-weight: lighter;
+}
+.me h3 {
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+.About-section p{
+    position: absolute;
+    top: 89vh;
+    color:  rgb(210, 236, 255);
+    font-size: 15px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    padding: 0px 40px;
+    box-sizing: border-box;
+}
+
+.About2 {
+    position: absolute;
+    top: 100vh;
+}
+
+#video{
+    width: 80vw;
+    height: auto;
+}
+
+.About2 h3{
+    color: rgb(210, 236, 255);
+    font-weight: lighter;
+    font-size: 22px;
+    padding: 3vh;
+}
+
+.School-Works-section{
+    display: flex;
+    background-color: rgb(76, 111, 136);
+    justify-content: space-around;
+    align-items: center;
+    height: 550px;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.School-Works-section img{
+    height: 450px;
+    width:auto;
+    border-radius: 10px;
+}
+
+.Personal-Works-section{
+    display: flex;
+    background-color: rgb(76, 111, 136);
+    justify-content: space-around;
+    align-items: center;
+    height: 550px;
+    width: 100vw;
+    overflow: hidden;
+    margin: 5vh 0vw;
+}
+
+.Personal-Works-section img{
+    height: 450px;
+    width:auto;
+    border-radius: 10px;
+}
+
+.Contact-section{
+    display: flex;
+    justify-content: center;
+    color: rgb(210, 236, 255);
+}
+
+#con{
+    display: grid;
+    padding: 10px 50px;
+}
+
+.Contact-section h1{
+    font-weight: 400;
+    padding: 10px 50px;
+}
+
+.Contact-section h3{
+    font-weight: 400;
+}
+
+footer {
+    color: rgb(210, 236, 255);
+    margin: 30px 0px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*進場動畫*/
+@keyframes bottomInText {
+    from {
+      transform: translateY(500px);
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .Home-section h3 {
+    animation: bottomInText 1.2s ease-out forwards;
+  }
+  
+  .Home-section h1 {
+    animation: bottomInText 1.5s ease-out forwards;
+}
+/*opacity不透明度*/
+
+@keyframes topIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  nav {
+    animation: topIn 1s ease-out forwards;
+}
+
+@keyframes topOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes topleft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes topright {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/*響應式*/
+@media screen and (max-width: 860px) {
+    nav {
+        animation: topOut 0.7s ease-out forwards;
+    }
+
+    .menu {
+        padding: 12px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        animation: topleft 1s ease-out forwards;
+        z-index: 11;
+        cursor: pointer;
+    }
+
+    #text h3 {
+        font-size: 13.7px;
+        font-weight: 400;
+        letter-spacing: 9px;
+        text-align: center;
+    }
+    #text h1 {
+        font-size: 13vw;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        text-align: center;
+        margin: -20px 0;
+    }
+}
+
+@media screen and (min-width: 860px) {
+    .menu {
+        padding: 12px;
+        display: block;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        animation: topright 0.7s ease-out forwards
+    }
+    /*min-width: 841px頁面最小841px時觸發*/
+}
+
+@media screen and (max-width: 615px) {
+    #p1 p{
+        font-size: 13px;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        color: rgb(255, 255, 255);
+        padding: 80px 40px;
+        width: 100vw;
+        overflow: hidden;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .me {
+        position: absolute;
+        left: 10vw;
+        bottom: 145vh;
+        color: rgb(255, 255, 255);
+        font-weight: lighter;
+        font-size: 70px;
+        letter-spacing: 2px;  
+    }
+    .me h1 {
+        font-weight: lighter;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+    }
+    .me h3 {
+        font-weight: lighter;
+        font-size: 22px;
+    }
+    .About-section p{
+        position: absolute;
+        top: 92vh;
+        color:  rgb(210, 236, 255);
+        font-size: 13px;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        padding: 0px 40px;
+        box-sizing: border-box;
+    }
+}
+
+#nav2.active {
+    animation: topleft 1.2s ease-out forwards;
+    left: 0px;
+}
